@@ -4,7 +4,8 @@
   "description": "api tests",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "pretest": "npm i && tsc",
+    "test": "./node_modules/.bin/jasmine"
   },
   "author": "",
   "license": "ISC",

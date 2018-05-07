@@ -1,5 +1,7 @@
+npm install -g typescript
+
 - the jamsine.json has to be in the that particular folder structure 
- i.e spec/support/jasmine.json
+i.e spec/support/jasmine.json
 
 -- To run the spec
 npm test or npm t
