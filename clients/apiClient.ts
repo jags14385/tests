@@ -3,11 +3,11 @@ import * as dotenv from "dotenv";
 
 export class APIClient {
 
-    private BASE_URL:string = 'http://preview.airwallex.com/30001/bank';
+    private BASE_URL: string = "http://preview.airwallex.com/30001/bank";
 
     protected getAPIInstance(): AxiosInstance {
         return axios.create({
-          baseURL: this.BASE_URL 
+          baseURL: this.BASE_URL,
         });
     }
 }
