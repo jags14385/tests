@@ -16,6 +16,4 @@ export class BankAPIClient extends APIClient {
         return this.getAPIInstance().post('/',jsonData)
                     .then(response => response.data);
     }
-
-
 }
