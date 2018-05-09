@@ -37,6 +37,7 @@ describe("Bank API for AU", () => {
         .saveDetails("SWIFT", "AU", "John Smith",
                     "123311", "CTBAAU2S7)", "","063182");
         expect(response.status).toBe(200);
+        expect(response.data).toEqual({ success: "Bank details saved" });
     });
 
 });
