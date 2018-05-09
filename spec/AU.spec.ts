@@ -8,7 +8,7 @@ describe("Bank API for Australia", () => {
         bankAPIClient = new APIClient.BankAPIClient();
     });
 
-    it('should work for bank country code AU for acc number length 6',async () => {
+    it('should work for acc number length 6',async () => {
         const response: AxiosResponse<any> = await bankAPIClient
         .saveDetails("LOCAL", "AU", "John Smith",
                     "112311", "", "", "063182");
