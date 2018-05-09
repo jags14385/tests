@@ -1,5 +1,5 @@
-import * as APIClient from "../clients/bankAPIClient";
 import { AxiosResponse } from "axios";
+import * as APIClient from "../clients/bankAPIClient";
 
 describe("Bank API", () => {
     let bankAPIClient: APIClient.BankAPIClient;
@@ -8,7 +8,7 @@ describe("Bank API", () => {
         bankAPIClient = new APIClient.BankAPIClient();
     });
 
-    it('should work for bank country code US',async () => {
+    it("should work for bank country code US", async () => {
         const response: AxiosResponse<any> = await bankAPIClient
         .saveDetails("LOCAL", "US", "John Smith",
                     "123", "ICBCUSBJ", "11122277A", "");
@@ -17,7 +17,7 @@ describe("Bank API", () => {
 
     });
 
-    it('should work for bank country code AU',async () => {
+    it("should work for bank country code AU", async () => {
         const response: AxiosResponse<any> = await bankAPIClient
         .saveDetails("LOCAL", "AU", "John Smith",
                     "11231123", "", "", "063182");
@@ -26,7 +26,7 @@ describe("Bank API", () => {
 
     });
 
-    it('should work for bank country code CN',async () => {
+    it("should work for bank country code CN", async () => {
         const response: AxiosResponse<any> = await bankAPIClient
         .saveDetails("LOCAL", "CN", "John Smith",
                     "12331123", "", "", "");
@@ -35,7 +35,7 @@ describe("Bank API", () => {
 
     });
 
-    it('should not work for other country codes',async () => {
+    it("should not work for other country codes", async () => {
         const response: AxiosResponse<any> = await bankAPIClient
         .saveDetails("LOCAL", "UK", "John Smith",
                     "12331123", "", "", "");
