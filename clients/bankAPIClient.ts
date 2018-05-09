@@ -5,7 +5,7 @@ export class BankAPIClient extends APIClient {
 
     public saveDetails(paymentMethod: string,
                        bankCountryCode: string, accountName: string,
-                       accountNumber: string, swiftCode: string, aba: string)
+                       accountNumber: string, swiftCode: string, aba: string,bsb: string)
                        :Promise<AxiosResponse> {
         
             const jsonData = {
@@ -14,7 +14,8 @@ export class BankAPIClient extends APIClient {
                 "account_name":accountName,
                 "account_number":accountNumber,  
                 "swift_code":swiftCode,
-                "aba":aba
+                "aba":aba,
+                "bsb":bsb
             };
 
         return axios.post("http://preview.airwallex.com:30001/bank",jsonData,{

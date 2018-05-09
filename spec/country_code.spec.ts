@@ -11,7 +11,7 @@ describe("Bank API", () => {
     it('should work for bank country code US',async () => {
         const response: AxiosResponse<any> = await bankAPIClient
         .saveDetails("LOCAL", "US", "John Smith",
-                    "123", "ICBCUSBJ", "11122277A");
+                    "123", "ICBCUSBJ", "11122277A", "");
         expect(response.status).toBe(200);
         expect(response.data).toEqual({ success: "Bank details saved" });
 
@@ -20,7 +20,7 @@ describe("Bank API", () => {
     it('should work for bank country code AU',async () => {
         const response: AxiosResponse<any> = await bankAPIClient
         .saveDetails("LOCAL", "AU", "John Smith",
-                    "123", "ICBCAUBJ", "11122277A");
+                    "11231123", "", "", "063182");
         expect(response.status).toBe(200);
         expect(response.data).toEqual({ success: "Bank details saved" });
 
@@ -29,14 +29,17 @@ describe("Bank API", () => {
     it('should work for bank country code CN',async () => {
         const response: AxiosResponse<any> = await bankAPIClient
         .saveDetails("LOCAL", "CN", "John Smith",
-                    "123", "ICBCCNBJ", "11122277A");
+                    "12331123", "", "", "");
         expect(response.status).toBe(200);
         expect(response.data).toEqual({ success: "Bank details saved" });
 
     });
 
     it('should not work for other country codes',async () => {
-
+        const response: AxiosResponse<any> = await bankAPIClient
+        .saveDetails("LOCAL", "UK", "John Smith",
+                    "12331123", "", "", "");
+        expect(response.status).toBe(400);
     });
 
 });
