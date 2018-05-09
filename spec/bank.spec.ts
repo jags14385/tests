@@ -1,3 +1,4 @@
+import { AxiosResponse } from "axios";
 import * as APIClient from "../clients/bankAPIClient";
 
 describe("Bank API", () => {
@@ -8,8 +9,10 @@ describe("Bank API", () => {
     });
 
     it("should return successful repsonse for valid details", async () => {
-        const response = await bankAPIClient.saveDetails("LOCAL", "US", "aba",
-                                        "123", "ICBCUSBJ", "11122233AA");
-        console.log(response);
+        const response: AxiosResponse<any> = await bankAPIClient
+                                        .saveDetails("SWIFT", "US", "John Smith",
+                                                    "123", "ICBCUSBJ", "11122277A");
+        expect(response.status).toBe(200);
+        expect(response.data).toEqual({ success: "Bank details saved" });
     });
 });

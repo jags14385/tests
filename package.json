@@ -12,9 +12,11 @@
   "devDependencies": {
     "@types/dotenv": "^4.0.3",
     "@types/jasmine": "^2.8.7",
+    "@types/request": "^2.47.0",
     "axios": "^0.18.0",
     "dotenv": "^5.0.1",
     "jasmine": "^3.1.0",
+    "request": "^2.85.0",
     "tslint": "^5.10.0"
   }
 }
