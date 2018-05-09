@@ -11,7 +11,11 @@ Linting :
 - To run the spec
 npm test or npm t
 
+Use .env file to set the url in a configurable manner.
+
 ToDO
-[]  use npm scripts 
-[x] use jasmine.json 
-[] use env variables
+[X]  use npm scripts 
+[X] use jasmine.json 
+[X] use env variables
+
+node version == v6.11.3
