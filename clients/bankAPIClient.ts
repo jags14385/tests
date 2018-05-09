@@ -1,5 +1,7 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 import { APIClient } from "./apiClient";
+import * as dotenv from "dotenv";
+
 
 export class BankAPIClient extends APIClient {
 
@@ -17,8 +19,11 @@ export class BankAPIClient extends APIClient {
                 aba,
                 bsb,
             };
+            // Load env from .env file
+            dotenv.config();
+            const url_str: any = process.env.API_URL;
 
-            return axios.post("http://preview.airwallex.com:30001/bank", jsonData, {
+            return axios.post(url_str, jsonData, {
             headers: { "content-type": "application/json" },
         }).then((response) => {
                     // console.log(response.status);
