@@ -14,8 +14,8 @@ export class BankAPIClient extends APIClient {
                 account_name: accountName,
                 account_number: accountNumber,
                 swift_code: swiftCode,
-                aba: aba,
-                bsb: bsb,
+                aba,
+                bsb,
             };
 
             return axios.post("http://preview.airwallex.com:30001/bank", jsonData, {

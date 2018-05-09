@@ -8,7 +8,7 @@ describe("Bank API for Australia", () => {
         bankAPIClient = new APIClient.BankAPIClient();
     });
 
-    it('should throw error when account number is not supplied',async () => {
+    it("should throw error when account number is not supplied", async () => {
         const response: AxiosResponse<any> = await bankAPIClient
         .saveDetails("LOCAL", "AU", "John Smith",
                     "", "", "", "");
