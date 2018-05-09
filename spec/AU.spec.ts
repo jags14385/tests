@@ -1,7 +1,7 @@
 import * as APIClient from "../clients/bankAPIClient";
 import { AxiosResponse } from "axios";
 
-describe("Bank API for AU", () => {
+describe("Bank API for Australia", () => {
     let bankAPIClient: APIClient.BankAPIClient;
 
     beforeEach(async () => {
