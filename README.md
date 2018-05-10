@@ -13,10 +13,10 @@ npm test or npm t
 
 Use .env file to set the url in a configurable manner.
 
-The issues can be found in ISSUES.md
+ ## The issues can be found in ISSUES.md
 
 ToDO
-[X]  use npm scripts 
+[X] use npm scripts 
 [X] use jasmine.json 
 [X] use env variables
 
