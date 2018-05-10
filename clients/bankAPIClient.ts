@@ -1,6 +1,6 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
-import { APIClient } from "./apiClient";
 import * as dotenv from "dotenv";
+import { APIClient } from "./apiClient";
 
 export class BankAPIClient extends APIClient {
 
@@ -18,12 +18,12 @@ export class BankAPIClient extends APIClient {
                 aba,
                 bsb,
             };
-            
+
             // Load env from .env file
             dotenv.config();
-            const url_str: any = process.env.API_URL ;
+            const urlStr: any = process.env.API_URL ;
 
-            return axios.post(url_str, jsonData, {
+            return axios.post(urlStr, jsonData, {
             headers: { "content-type": "application/json" },
         }).then((response) => {
                     // console.log(response.status);

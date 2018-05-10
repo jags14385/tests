@@ -20,4 +20,5 @@ ToDO
 [X] use jasmine.json 
 [X] use env variables
 
-node version == v6.11.3
+node version ==> v6.11.3
+tsc -v ==> Version 2.7.2
