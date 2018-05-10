@@ -18,9 +18,10 @@ export class BankAPIClient extends APIClient {
                 aba,
                 bsb,
             };
-            dotenv.config({path: "../.env"});
+            
             // Load env from .env file
-            const url_str: any = process.env.API_URL || "http://preview.airwallex.com:30001/bank";
+            dotenv.config();
+            const url_str: any = process.env.API_URL ;
 
             return axios.post(url_str, jsonData, {
             headers: { "content-type": "application/json" },
@@ -33,7 +34,8 @@ export class BankAPIClient extends APIClient {
                     // The request was made and the server responded with a status code
                     // that falls out of the range of 2xx
                     // console.log(error.response.data);
-                    // console.log(error.response.status);
+                    //  console.log(error.response.status);
+                    //  console.log('url:',url_str)
                     // console.log(error.response);
                   }
                 return error.response;
