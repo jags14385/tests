@@ -1,8 +1,7 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 import * as dotenv from "dotenv";
-import { APIClient } from "./apiClient";
 
-export class BankAPIClient extends APIClient {
+export class BankAPIClient {
 
     public saveDetails(paymentMethod: string,
                        bankCountryCode: string, accountName: string,
