@@ -40,6 +40,7 @@ describe("Bank API", () => {
         .saveDetails("LOCAL", "UK", "John Smith",
                     "12331123", "", "", "");
         expect(response.status).toBe(400);
+        expect(response.data).toEqual({error : "'bank_country_code' is required, and should be one of 'US', 'AU', or 'CN'"});
     });
 
 });
