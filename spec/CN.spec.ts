@@ -1,6 +1,6 @@
 import { AxiosResponse } from "axios";
 import * as APIClient from "../clients/bankAPIClient";
-import {SWIFT_PAYMENT_MODE, LOCAL_PAYMENT_MODE} from "../utils/Constants"
+import {LOCAL_PAYMENT_MODE, SWIFT_PAYMENT_MODE} from "../utils/Constants";
 
 describe("Bank API for China", () => {
     let bankAPIClient: APIClient.BankAPIClient;
