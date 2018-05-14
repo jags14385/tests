@@ -1,5 +1,6 @@
 import { AxiosResponse } from "axios";
 import * as APIClient from "../clients/bankAPIClient";
+import {LOCAL_PAYMENT_MODE} from "../utils/Constants";
 
 describe("Bank API", () => {
     let bankAPIClient: APIClient.BankAPIClient;
@@ -10,7 +11,7 @@ describe("Bank API", () => {
 
     it("should work for LOCAL payment Method", async () => {
         const response: AxiosResponse<any> = await bankAPIClient
-        .saveDetails("LOCAL", "US", "John Smith",
+        .saveDetails(LOCAL_PAYMENT_MODE, "US", "John Smith",
                     "123", "", "11122277A", "");
         expect(response.status).toBe(200);
         expect(response.data).toEqual({ success: "Bank details saved" });
