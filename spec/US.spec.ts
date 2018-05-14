@@ -1,6 +1,6 @@
 import { AxiosResponse } from "axios";
 import * as APIClient from "../clients/bankAPIClient";
-import {LOCAL_PAYMENT_MODE} from "../utils/Constants";
+import {LOCAL_PAYMENT_MODE, SWIFT_PAYMENT_MODE} from "../utils/Constants";
 
 describe("Bank API for US", () => {
     let bankAPIClient: APIClient.BankAPIClient;
@@ -43,7 +43,7 @@ describe("Bank API for US", () => {
 
     it("should successfully save bank details For payment method SWIFT", async () => {
         const response: AxiosResponse<any> = await bankAPIClient
-        .saveDetails("SWIFT", "US", "John Smith",
+        .saveDetails(SWIFT_PAYMENT_MODE, "US", "John Smith",
                     "123456", "ABCDUSDODO", "123456789", "");
         expect(response.status).toBe(200);
         expect(response.data).toEqual({ success: "Bank details saved" });
@@ -51,7 +51,7 @@ describe("Bank API for US", () => {
 
     it("should throw error when PAYMENT method is SWIFT and swift code is not supplied", async () => {
         const response: AxiosResponse<any> = await bankAPIClient
-        .saveDetails("SWIFT", "US", "John Smith",
+        .saveDetails(SWIFT_PAYMENT_MODE, "US", "John Smith",
                     "123456", "", "123456789", "");
         expect(response.status).toBe(400);
         expect(response.data).toEqual({ error: "'swift_code' is required when payment method is 'SWIFT'" });
@@ -59,7 +59,7 @@ describe("Bank API for US", () => {
 
     it("should throw error when PAYMENT method is SWIFT and swift code is wrong", async () => {
         const response: AxiosResponse<any> = await bankAPIClient
-        .saveDetails("SWIFT", "US", "John Smith",
+        .saveDetails(SWIFT_PAYMENT_MODE, "US", "John Smith",
                     "123456", "ABCDAUIO", "123456789", "");
         expect(response.status).toBe(400);
         expect(response.data).toEqual({ error: "The swift code is not valid for the given bank country code: US" });
@@ -67,7 +67,7 @@ describe("Bank API for US", () => {
 
     it("should throw error when aba of length 12", async () => {
         const response: AxiosResponse<any> = await bankAPIClient
-        .saveDetails("SWIFT", "US", "John Smith",
+        .saveDetails(SWIFT_PAYMENT_MODE, "US", "John Smith",
                     "123456", "ABCDUSDODO", "123456789012", "");
         expect(response.status).toBe(400);
         expect(response.data).toEqual({ error: "Length of 'aba' should be 9" });
@@ -75,7 +75,7 @@ describe("Bank API for US", () => {
 
     it("should throw error when aba of length 5", async () => {
         const response: AxiosResponse<any> = await bankAPIClient
-        .saveDetails("SWIFT", "US", "John Smith",
+        .saveDetails(SWIFT_PAYMENT_MODE, "US", "John Smith",
                     "123456", "ABCDUSDODO", "12345", "");
         expect(response.status).toBe(400);
         expect(response.data).toEqual({ error: "Length of 'aba' should be 9" });
@@ -83,7 +83,7 @@ describe("Bank API for US", () => {
 
     it("should throw error when aba is not supplied", async () => {
         const response: AxiosResponse<any> = await bankAPIClient
-        .saveDetails("SWIFT", "US", "John Smith",
+        .saveDetails(SWIFT_PAYMENT_MODE, "US", "John Smith",
                     "123456", "ABCDUSDODO", "", "");
         expect(response.status).toBe(400);
         expect(response.data).toEqual({ error: "Length of 'aba' should be 9" });

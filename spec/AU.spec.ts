@@ -1,6 +1,6 @@
 import { AxiosResponse } from "axios";
 import * as APIClient from "../clients/bankAPIClient";
-import {LOCAL_PAYMENT_MODE} from "../utils/Constants";
+import {LOCAL_PAYMENT_MODE, SWIFT_PAYMENT_MODE} from "../utils/Constants";
 
 describe("Bank API for Australia", () => {
     let bankAPIClient: APIClient.BankAPIClient;
@@ -59,7 +59,7 @@ describe("Bank API for Australia", () => {
 
     it("should successfully save details for valid swift code", async () => {
         const response: AxiosResponse<any> = await bankAPIClient
-        .saveDetails("SWIFT", "AU", "John Smith",
+        .saveDetails(SWIFT_PAYMENT_MODE, "AU", "John Smith",
                     "123311", "CTBAAU2S7)", "", "063182");
         expect(response.status).toBe(200);
         expect(response.data).toEqual({ success: "Bank details saved" });
@@ -67,7 +67,7 @@ describe("Bank API for Australia", () => {
 
     it("should thow error for invalid swift code", async () => {
         const response: AxiosResponse<any> = await bankAPIClient
-        .saveDetails("SWIFT", "AU", "John Smith",
+        .saveDetails(SWIFT_PAYMENT_MODE, "AU", "John Smith",
                     "123311", "CTBAJK2S7)", "", "063182");
         expect(response.status).toBe(400);
         expect(response.data).toEqual({ error: "The swift code is not valid for the given bank country code: AU" });
@@ -75,7 +75,7 @@ describe("Bank API for Australia", () => {
 
     it("should thow error for account number length less than 6", async () => {
         const response: AxiosResponse<any> = await bankAPIClient
-        .saveDetails("SWIFT", "AU", "John Smith",
+        .saveDetails(SWIFT_PAYMENT_MODE, "AU", "John Smith",
                     "12331", "CTBAJK2S7)", "", "063182");
         expect(response.status).toBe(400);
         expect(response.data).toEqual({ error: "Length of account_number should be between 6 and 9 when bank_country_code is 'AU'" });
@@ -83,7 +83,7 @@ describe("Bank API for Australia", () => {
 
     it("should thow error for account number length greater than 9", async () => {
         const response: AxiosResponse<any> = await bankAPIClient
-        .saveDetails("SWIFT", "AU", "John Smith",
+        .saveDetails(SWIFT_PAYMENT_MODE, "AU", "John Smith",
                     "1233112331", "CTBAJK2S7)", "", "063182");
         expect(response.status).toBe(400);
         expect(response.data).toEqual({ error: "Length of account_number should be between 6 and 9 when bank_country_code is 'AU'" });
