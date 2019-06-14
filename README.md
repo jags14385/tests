@@ -1,7 +1,4 @@
-    
 [![Known Vulnerabilities](https://snyk.io//test/github/jags14385/tests/badge.svg?targetFile=package.json)](https://snyk.io//test/github/jags14385/tests?targetFile=package.json)
-
-  
 
 npm install -g typescript
 npm install -g tslint
